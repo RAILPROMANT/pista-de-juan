@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La pista de Juan</title>
+<meta name="theme-color" content="#2A303A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pista de Juan">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  html,body{margin:0;height:100%;background:#2A303A}
+  iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#EEF2F6}
+  #carga{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#FFC22E;font:800 18px system-ui,sans-serif}
+</style>
+</head>
+<body>
+<div id="carga">Arrancando la pista…</div>
+<iframe id="app" title="La pista de Juan" allow="clipboard-write"
+  src="https://script.google.com/macros/s/AKfycbwzB05CtRe1lqXKJaayK5SM4wAQaMLdT9FSRefmPcxVhN4FMn6AgG8Gyg2uQ-_ACvTn/exec"></iframe>
+<script>
+  document.getElementById('app').addEventListener('load', function(){ document.getElementById('carga').remove(); });
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function(){});
+</script>
+</body>
+</html>
